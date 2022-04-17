@@ -1,5 +1,5 @@
 {
-  "name": "KeniBot",
+  "name": "keni-bot",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -9,6 +9,7 @@
     "axios": "^0.26.1",
     "discord-api-types": "^0.31.1",
     "discord.js": "^13.6.0",
+    "distube": "^3.3.4",
     "dotenv": "^16.0.0"
   },
   "devDependencies": {

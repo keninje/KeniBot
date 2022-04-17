@@ -6,6 +6,7 @@ const getCommands = async (dir) => {
             .filter(file => file.endsWith('.js'))
             .map(async file => {
                 const { default: command } = await import(`${dir}/${file}`)
+                console.log(`Loaded ${file}`)
                 return command
             });
     return Promise.all(commands);
