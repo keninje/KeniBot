@@ -3,6 +3,8 @@ name: Deploy bot
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+        - '.github/**'
   workflow_dispatch:
 
 jobs:
@@ -17,5 +19,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
+            set -e
             cd bot/KeniBot
+            git pull
             pm2 restart KeniBot
