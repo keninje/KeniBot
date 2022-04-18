@@ -4,10 +4,10 @@ import { MessageEmbed } from 'discord.js';
 import Command from '../types/command.js';
 
 export default <Command>{
-	data: new SlashCommandBuilder()
-		.setName('inspireme')
-		.setDescription('Generates an inspirational quote'),
-	async execute(interaction) {
+    data: new SlashCommandBuilder()
+        .setName('inspireme')
+        .setDescription('Generates an inspirational quote'),
+    async execute(interaction) {
         axios.get('http://inspirobot.me/api?generate=true')
             .then(async resp => {
                 const embed = new MessageEmbed()
@@ -19,5 +19,5 @@ export default <Command>{
                 console.error(err)
                 await interaction.reply({ content: `There was an error while processing this command: ${interaction.commandName}` })
             })
-	},
+    },
 };
