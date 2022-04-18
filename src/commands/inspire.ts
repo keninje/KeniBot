@@ -1,8 +1,9 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import axios from 'axios';
 import { MessageEmbed } from 'discord.js';
+import Command from '../types/command.js';
 
-export default {
+export default <Command>{
 	data: new SlashCommandBuilder()
 		.setName('inspireme')
 		.setDescription('Generates an inspirational quote'),

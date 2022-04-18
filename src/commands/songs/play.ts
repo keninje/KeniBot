@@ -1,6 +1,7 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
+import Command from '../../types/command.js';
 
-export default {
+export default <Command>{
 	data: new SlashCommandBuilder()
 		.setName('play')
 		.setDescription('Generates an inspirational quote')
@@ -11,7 +12,7 @@ export default {
         ),
 	async execute(interaction) {
         console.log(interaction.options.get('song'))
-        await interaction.reply({ content: "KEK" , ephemeral: true });
+        await interaction.reply({ content: "KEK DABL YOU" , ephemeral: true });
 	},
 };
 

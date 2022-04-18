@@ -1,11 +1,19 @@
 import { Client, Intents } from "discord.js";
-import dotenv from 'dotenv';
+import Command from "./types/command";
 import { getCommandsMap } from "./common.js";
-dotenv.config();
+import { token } from './config.js'
+import path from "path";
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] })
+class KeniClient extends Client<boolean> {
+    commands: Map<string, Command>;
+    
+    constructor(commands: Map<string, Command>) {
+        super({ intents: [Intents.FLAGS.GUILDS] })
+        this.commands = commands;
+    }
+}
 
-client.commands = await getCommandsMap('./commands')
+const client = new KeniClient(await getCommandsMap(`./commands`))
 
 client.once('ready', () => {
     console.log('Ready')
@@ -14,14 +22,16 @@ client.once('ready', () => {
 client.on('interactionCreate', async interaction => {
     if (!interaction.isCommand()) return ;
 
+    console.log(interaction)
+
     const command = client.commands.get(interaction.commandName)
 
     try {
-        await command.execute(interaction)
+        await command!!.execute(interaction)
     } catch (error) {
         console.error(error)
         await interaction.reply({ content: `There was an error while processing this command: ${interaction.commandName}`, ephemeral: true })
     }
 })
 
-client.login(process.env.DISCORD_TOKEN)
+client.login(token)
