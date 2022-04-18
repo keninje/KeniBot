@@ -249,21 +249,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"KeniBot@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "KeniBot@workspace:."
-  dependencies:
-    "@discordjs/builders": ^0.13.0
-    "@discordjs/rest": ^0.4.1
-    axios: ^0.26.1
-    discord-api-types: ^0.31.1
-    discord.js: ^13.6.0
-    distube: 3.3.4
-    dotenv: ^16.0.0
-    eslint: ^8.13.0
-  languageName: unknown
-  linkType: soft
-
 "acorn-jsx@npm:^5.3.1":
   version: 5.3.2
   resolution: "acorn-jsx@npm:5.3.2"
@@ -538,7 +523,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"distube@npm:3.3.4":
+"distube@npm:^3.3.4":
   version: 3.3.4
   resolution: "distube@npm:3.3.4"
   dependencies:
@@ -1031,6 +1016,21 @@ __metadata:
   checksum: cff44156ddce9c67c44386ad5cddf91925fe06b1d217f2da9c4910d01f358c6e3989c4d5a02683c7a5667f9727ff05831f7aa8ae66c8ff691c556f0884d49215
   languageName: node
   linkType: hard
+
+"keni-bot@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "keni-bot@workspace:."
+  dependencies:
+    "@discordjs/builders": ^0.13.0
+    "@discordjs/rest": ^0.4.1
+    axios: ^0.26.1
+    discord-api-types: ^0.31.1
+    discord.js: ^13.6.0
+    distube: ^3.3.4
+    dotenv: ^16.0.0
+    eslint: ^8.13.0
+  languageName: unknown
+  linkType: soft
 
 "keyv@npm:^4.0.0":
   version: 4.2.2
