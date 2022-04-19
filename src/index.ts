@@ -1,18 +1,10 @@
-import { Client, Intents } from "discord.js";
-import Command from "./types/command";
 import { getCommandsMap } from "./common.js";
 import { token } from './config.js'
+import CustomClient from "./types/custom-client.js";
 
-class KeniClient extends Client<boolean> {
-    commands: Map<string, Command>;
-
-    constructor(commands: Map<string, Command>) {
-        super({ intents: [Intents.FLAGS.GUILDS] })
-        this.commands = commands;
-    }
-}
-
-const client = new KeniClient(await getCommandsMap(`./commands`))
+const client = new CustomClient(
+    await getCommandsMap(`./commands`)
+)
 
 client.once('ready', () => {
     console.log('Ready')
@@ -24,7 +16,7 @@ client.on('interactionCreate', async interaction => {
     const command = client.commands.get(interaction.commandName)
 
     try {
-        await command!!.execute(interaction)
+        await command!!.execute(interaction, client)
     } catch (error) {
         console.error(error)
         await interaction.reply({ content: `There was an error while processing this command: ${interaction.commandName}`, ephemeral: true })

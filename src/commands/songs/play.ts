@@ -1,18 +1,33 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
-import Command from '../../types/command.js';
+import { CacheType, CommandInteraction, VoiceBasedChannel } from 'discord.js';
+import customClient from '../../types/custom-client.js';
+import SongCommand from '../../types/song-command.js';
 
-export default <Command>{
-    data: new SlashCommandBuilder()
+class PlayCommand extends SongCommand {
+    data = new SlashCommandBuilder()
         .setName('play')
-        .setDescription('Generates an inspirational quote')
+        .setDescription('Plays specified song')
         .addStringOption(option =>
             option.setName('song')
-                .setDescription('YouTube Song URL')
+                .setDescription('YouTube Song name/URL')
                 .setRequired(true)
-        ),
-    async execute(interaction) {
-        console.log(interaction.options.get('song'))
-        await interaction.reply({ content: "Deadge", ephemeral: true });
-    },
+        );
+
+    async executeSongCommand(interaction: CommandInteraction<CacheType>, voiceBasedChannel: VoiceBasedChannel, client: customClient): Promise<void> {
+        const song: string = interaction.options.get('song')?.value as string //parameter is set as required in the command builder
+        //@ts-expect-error god javascript is so fucking garbage holy fucking shit
+        client.distube.play(voiceBasedChannel, song, {
+            member: interaction.member,
+            textChannel: interaction.channel
+        }).then(async () => {
+            await interaction.reply("Song has been queued up");
+        })
+        .catch(async (err) => {
+            console.log(err)
+            await interaction.reply("Something broke");
+        })
+    }
 };
+
+export default new PlayCommand();
 
