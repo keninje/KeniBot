@@ -21,7 +21,7 @@ const getFilesRecursively = async (dir: string): Promise<string[]> => {
         const path = `${dir}/${file.name}`
         return file.isDirectory() ? getFilesRecursively(path) : Promise.resolve([path]);
     }));
-    return Array.prototype.concat(...commandsFiles)  
+    return Array.prototype.concat(...commandsFiles)
 }
 
 const getCommands = async (dir: string): Promise<Command[]> => getModulesFromFiles(await getFilesRecursively(dir));

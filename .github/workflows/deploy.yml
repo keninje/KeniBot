@@ -25,4 +25,9 @@ jobs:
             git fetch --all
             git reset --hard origin/main
             git pull
+            yarn build
+
+            echo "DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}" > .env
+            echo "CLIENT_ID=${{ secrets.CLIENT_ID }}" >> .env
+
             pm2 restart KeniBot
