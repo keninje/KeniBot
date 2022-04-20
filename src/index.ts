@@ -2,7 +2,7 @@ import { Queue, Song } from "distube";
 import { getCommandsMap } from "./common.js";
 import { token } from './config.js'
 import CustomClient from "./types/custom-client.js";
-import { constructEmbedCurrentlyPlaying } from "./utils/songs.js";
+import { constructEmbedCurrentlyPlaying, constructEmbedEmptyQueue } from "./utils/songs.js";
 
 const client = new CustomClient(
     await getCommandsMap(`./commands`)
@@ -25,8 +25,10 @@ client.on('interactionCreate', async interaction => {
     }
 })
 
-client.distube.on('addSong', (queue: Queue, song: Song<unknown>) => {
+client.distube.on('playSong', (queue: Queue, song: Song<unknown>) => {
     queue.textChannel?.send({ embeds: [constructEmbedCurrentlyPlaying(song, queue.currentTime)] })
 })
+
+client.distube.on("finish", (queue: Queue) => queue.textChannel?.send({ embeds: [constructEmbedEmptyQueue()] }));
 
 client.login(token)
