@@ -15,16 +15,17 @@ class PlayCommand extends SongCommand {
 
     async executeSongCommand(interaction: CommandInteraction<CacheType>, voiceBasedChannel: VoiceBasedChannel, client: customClient): Promise<void> {
         const song: string = interaction.options.get('song')?.value as string //parameter is set as required in the command builder
+        await interaction.deferReply();
         //@ts-expect-error god javascript is so fucking garbage holy fucking shit
-        client.distube.play(voiceBasedChannel, song, {
+        await client.distube.play(voiceBasedChannel, song, {
             member: interaction.member,
             textChannel: interaction.channel
         }).then(async () => {
-            await interaction.reply("Song has been queued up");
+            await interaction.editReply("Song has been queued up");
         })
         .catch(async (err) => {
             console.log(err)
-            await interaction.reply("Something broke");
+            await interaction.editReply("Something broke");
         })
     }
 };

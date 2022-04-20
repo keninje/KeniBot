@@ -9,7 +9,8 @@ export default class CustomClient extends Client<boolean> {
     distube = new DisTube(this, {
         plugins: [
             new YtDlpPlugin()
-        ]
+        ],
+        youtubeDL: false
     })
 
     constructor(commands: Map<string, Command>) {

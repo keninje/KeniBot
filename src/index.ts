@@ -19,7 +19,7 @@ client.on('interactionCreate', async interaction => {
         await command!!.execute(interaction, client)
     } catch (error) {
         console.error(error)
-        await interaction.reply({ content: `There was an error while processing this command: ${interaction.commandName}`, ephemeral: true })
+        await interaction.channel?.send({ content: `There was an error while processing the command` })
     }
 })
 
