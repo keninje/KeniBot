@@ -21,6 +21,8 @@ const addCommandsGlobally = () => {
 
 if (process.argv.includes('--global')) {
     addCommandsGlobally()
-} else {
+} else if (process.argv.length >= 3) {
     addCommandsToGuild(process.argv.at(2)!!)
+} else {
+    console.log("No command line arguments specified")
 }

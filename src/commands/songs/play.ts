@@ -1,7 +1,8 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { CacheType, CommandInteraction, VoiceBasedChannel } from 'discord.js';
-import customClient from '../../types/custom-client.js';
+import CustomClient from '../../types/custom-client.js';
 import SongCommand from '../../types/song-command.js';
+import { constructEmbedQueuedUp } from '../../utils/songs.js';
 
 class PlayCommand extends SongCommand {
     data = new SlashCommandBuilder()
@@ -13,7 +14,7 @@ class PlayCommand extends SongCommand {
                 .setRequired(true)
         );
 
-    async executeSongCommand(interaction: CommandInteraction<CacheType>, voiceBasedChannel: VoiceBasedChannel, client: customClient): Promise<void> {
+    async executeSongCommand(interaction: CommandInteraction<CacheType>, voiceBasedChannel: VoiceBasedChannel, client: CustomClient): Promise<void> {
         const song: string = interaction.options.get('song')?.value as string //parameter is set as required in the command builder
         await interaction.deferReply();
         //@ts-expect-error god javascript is so fucking garbage holy fucking shit
@@ -21,7 +22,12 @@ class PlayCommand extends SongCommand {
             member: interaction.member,
             textChannel: interaction.channel
         }).then(async () => {
-            await interaction.editReply("Song has been queued up");
+            const queue = client.distube.getQueue(interaction.guildId!!)!!
+            const songs = queue.songs!!
+            const position = songs.length - 1
+            const queuedSong = songs.at(position)!! //song is guarranteed to be at the back of the queue since we just queued one
+            const embed = constructEmbedQueuedUp(queuedSong, songs.length - 1, songs.reduce((acc, e) => acc + e.duration, -queuedSong.duration - queue.currentTime))
+            await interaction.editReply({ embeds: [embed] })
         })
         .catch(async (err) => {
             console.log(err)
