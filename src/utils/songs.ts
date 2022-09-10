@@ -1,9 +1,8 @@
-import { bold, hyperlink } from "@discordjs/builders";
-import { MessageEmbed } from "discord.js";
+import { bold, Colors, EmbedBuilder, hyperlink } from "discord.js";
 import { Song } from "distube";
 
-const constructEmbedQueuedUp = (song: Song<unknown>, position: number, secondsUntil: number): MessageEmbed => {
-    return new MessageEmbed()
+const constructEmbedQueuedUp = (song: Song<unknown>, position: number, secondsUntil: number): EmbedBuilder => {
+    return new EmbedBuilder()
         .setColor('#A877C8')
         .setTitle("New song queued up")
         .setDescription(bold(hyperlink(song.name ?? "Song", song.url)))
@@ -15,8 +14,8 @@ const constructEmbedQueuedUp = (song: Song<unknown>, position: number, secondsUn
         .setThumbnail(song.thumbnail ?? "https://images.pexels.com/photos/11733110/pexels-photo-11733110.jpeg")
 }
 
-const constructEmbedCurrentlyPlaying = (song: Song<unknown>, elapsed: number): MessageEmbed =>
-    new MessageEmbed()
+const constructEmbedCurrentlyPlaying = (song: Song<unknown>, elapsed: number): EmbedBuilder =>
+    new EmbedBuilder()
         .setColor('#A877C8')
         .setDescription(`Now playing: ${bold(hyperlink(song.name!!, song.url))}`)
         .addFields(
@@ -24,9 +23,9 @@ const constructEmbedCurrentlyPlaying = (song: Song<unknown>, elapsed: number): M
         )
         .setThumbnail(song.thumbnail ?? "https://images.pexels.com/photos/11733110/pexels-photo-11733110.jpeg")
 
-const constructEmbedEmptyQueue = (): MessageEmbed =>
-    new MessageEmbed()
-        .setColor('RED')
+const constructEmbedEmptyQueue = (): EmbedBuilder =>
+    new EmbedBuilder()
+        .setColor(Colors.Red)
         .setDescription('There are no songs in the queue')
 
 const secondsToMinutes = (seconds: number): string => {

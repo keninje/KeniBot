@@ -1,5 +1,4 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { CommandInteraction, CacheType, VoiceBasedChannel } from "discord.js";
+import { CommandInteraction, CacheType, VoiceBasedChannel, SlashCommandBuilder } from "discord.js";
 import customClient from "../../types/custom-client";
 import SongCommand from "../../types/song-command.js";
 

@@ -1,3 +1,4 @@
+import { CacheType, ChatInputCommandInteraction } from "discord.js";
 import { Queue, Song } from "distube";
 import { getCommandsMap } from "./common.js";
 import { token } from './config.js'
@@ -15,10 +16,12 @@ client.once('ready', () => {
 client.on('interactionCreate', async interaction => {
     if (!interaction.isCommand()) return;
 
+    const commandInterraction = interaction as ChatInputCommandInteraction<CacheType>
+
     const command = client.commands.get(interaction.commandName)
 
     try {
-        await command!!.execute(interaction, client)
+        await command!!.execute(commandInterraction, client)
     } catch (error) {
         console.error(error)
         await interaction.channel?.send({ content: `There was an error while processing the command` })

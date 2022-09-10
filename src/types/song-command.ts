@@ -1,4 +1,4 @@
-import { CacheType, CommandInteraction, GuildMember, Permissions, VoiceBasedChannel } from "discord.js";
+import { CacheType, CommandInteraction, GuildMember, PermissionFlagsBits, VoiceBasedChannel } from "discord.js";
 import Command from "./command";
 import CustomClient from "./custom-client";
 import SlashCommand from "./slash-command";
@@ -24,11 +24,11 @@ abstract class SongCommand implements Command {
 
     private async checkBotPermissions(interaction: CommandInteraction<CacheType>, voiceChannel: VoiceBasedChannel): Promise<boolean> {
         const permissions = voiceChannel.permissionsFor(interaction.client.user!!)!!
-        if (!permissions.has(Permissions.FLAGS.CONNECT)) {
+        if (!permissions.has(PermissionFlagsBits.Connect)) {
             await interaction.reply("I do not have the permission to connect to the Voice Channel")
             return false;
         }
-        else if (!permissions.has(Permissions.FLAGS.SPEAK)) {
+        else if (!permissions.has(PermissionFlagsBits.Speak)) {
             await interaction.reply("I do not have the permission to speak in the Voice Channel")
             return false
         }

@@ -1,4 +1,4 @@
-import { Client, Intents } from "discord.js";
+import { Client, GatewayIntentBits, Partials } from "discord.js";
 import Command from "./command";
 import { DisTube } from 'distube';
 import { YtDlpPlugin } from '@distube/yt-dlp';
@@ -9,14 +9,13 @@ export default class CustomClient extends Client<boolean> {
     distube = new DisTube(this, {
         plugins: [
             new YtDlpPlugin()
-        ],
-        youtubeDL: false
+        ]
     })
 
     constructor(commands: Map<string, Command>) {
         super({ intents: [
-            Intents.FLAGS.GUILDS,
-            Intents.FLAGS.GUILD_VOICE_STATES
+            GatewayIntentBits.Guilds,
+            GatewayIntentBits.GuildVoiceStates
         ] })
         this.commands = commands
     }

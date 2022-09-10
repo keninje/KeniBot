@@ -1,6 +1,5 @@
-import { SlashCommandBuilder } from '@discordjs/builders';
 import axios from 'axios';
-import { CacheType, CommandInteraction, MessageEmbed } from 'discord.js';
+import { CacheType, CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
 import Command from '../types/command.js';
 
 class InspireMeCommand implements Command {
@@ -11,7 +10,7 @@ class InspireMeCommand implements Command {
     async execute(interaction: CommandInteraction<CacheType>) {
         axios.get('http://inspirobot.me/api?generate=true')
             .then(async resp => {
-                const embed = new MessageEmbed()
+                const embed = new EmbedBuilder()
                     .setColor('#A877C8')
                     .setImage(resp.data)
                 await interaction.reply({ embeds: [embed] });

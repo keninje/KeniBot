@@ -1,5 +1,4 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { CacheType, CommandInteraction, VoiceBasedChannel } from "discord.js";
+import { CacheType, CommandInteraction, SlashCommandBuilder, VoiceBasedChannel } from "discord.js";
 import CustomClient from "../../types/custom-client";
 import SongCommand from "../../types/song-command.js";
 import { constructEmbedCurrentlyPlaying, constructEmbedEmptyQueue } from "../../utils/songs.js";
