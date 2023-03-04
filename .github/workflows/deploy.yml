@@ -24,7 +24,7 @@ jobs:
             cd bot/KeniBot
             git fetch --all
             git reset --hard origin/main
-            git pull
+            git pull --ff-only
             yarn buildProd
 
             echo "DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}" > .env
