@@ -26,10 +26,12 @@
   "type": "module",
   "packageManager": "yarn@4.0.0-rc.36",
   "scripts": {
-    "build": "yarn install && yarn tsc",
+    "buildDev": "yarn install && yarn tsc",
+    "buildProd": "yarn install --prod && yarn tsc",
     "clean": "rm -rf target",
     "start": "yarn node target/index.js",
-    "restart": "yarn build && yarn start",
+    "restartDev": "yarn buildDev && yarn start",
+    "restartProd": "yarn buildProd && yarn start",
     "pushGuild": "yarn node target/commands.js",
     "pushGlobal": "yarn node target/commands.js --global"
   }
