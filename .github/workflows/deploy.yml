@@ -3,8 +3,6 @@ name: Deploy bot
 on:
   push:
     branches: [ main ]
-    paths-ignore:
-        - '.github/**'
   workflow_dispatch:
 
 jobs:
@@ -24,7 +22,7 @@ jobs:
             cd bot/KeniBot
             git fetch --all
             git reset --hard origin/main
-            git pull --ff-only
+            git pull origin main
             yarn build
 
             echo "DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}" > .env
