@@ -23,6 +23,7 @@ jobs:
             git fetch --all
             git reset --hard origin/main
             git pull origin main
+            yarn install
             yarn build
 
             echo "DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}" > .env
