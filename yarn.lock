@@ -321,10 +321,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/libsodium-wrappers@npm:^0.7.10":
-  version: 0.7.10
-  resolution: "@types/libsodium-wrappers@npm:0.7.10"
-  checksum: 80881804533e728eaa53366425d5397e60d80bbedeba4db0db3657c0351b29a6164e69e5b205fc40fe4341c12646dd248002343af66bfd574e24f10a81ab98d9
+"@types/libsodium-wrappers@npm:^0.7.11":
+  version: 0.7.11
+  resolution: "@types/libsodium-wrappers@npm:0.7.11"
+  checksum: f531553eac2fd42ac5547691985c85069204e218669645f9ba2feb8df290a822899c28630de9a006ea987cffc5280426e4f11efb78e4bd1853db3f58e8079994
   languageName: node
   linkType: hard
 
@@ -1348,7 +1348,7 @@ __metadata:
     "@distube/yt-dlp": "npm:^1.1.3"
     "@distube/ytdl-core": "npm:^4.11.7"
     "@tsconfig/node16": "npm:^1.0.3"
-    "@types/libsodium-wrappers": "npm:^0.7.10"
+    "@types/libsodium-wrappers": "npm:^0.7.11"
     "@types/node": "npm:^18.15.3"
     axios: "npm:^1.3.4"
     discord-api-types: "npm:^0.37.36"
