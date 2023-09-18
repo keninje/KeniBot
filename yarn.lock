@@ -321,10 +321,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/node16@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "@tsconfig/node16@npm:1.0.3"
-  checksum: 4280081089783dfeab00e5bc18ff55e11e8e4577d4626f34730a062c99ec4136fe6c2036e6f20ebe50b1c3e01bc29db6e2cfa9541a7b6dc99825ccbe8f7f8395
+"@tsconfig/node16@npm:^16.1.1":
+  version: 16.1.1
+  resolution: "@tsconfig/node16@npm:16.1.1"
+  checksum: 5ecdd3f5eff72f7215abcea126b2cb8ad6e008125d8301413f079352bb478f53b705c78b15d7b38894982c4cf23dc570ec775c07da7b3870f2ff7853c5f46baa
   languageName: node
   linkType: hard
 
@@ -1351,7 +1351,7 @@ __metadata:
     "@discordjs/voice": "npm:^0.15.0"
     "@distube/yt-dlp": "npm:^1.1.3"
     "@distube/ytdl-core": "npm:^4.11.7"
-    "@tsconfig/node16": "npm:^1.0.3"
+    "@tsconfig/node16": "npm:^16.1.1"
     "@types/libsodium-wrappers": "npm:^0.7.11"
     "@types/node": "npm:^18.15.3"
     axios: "npm:^1.5.0"

@@ -17,7 +17,7 @@
     "libsodium-wrappers": "^0.7.11"
   },
   "devDependencies": {
-    "@tsconfig/node16": "^1.0.3",
+    "@tsconfig/node16": "^16.1.1",
     "@types/libsodium-wrappers": "^0.7.11",
     "@types/node": "^18.15.3",
     "eslint": "^8.49.0",
