@@ -342,10 +342,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.15.3":
-  version: 18.15.3
-  resolution: "@types/node@npm:18.15.3"
-  checksum: 658d687cb6d88ccbb7d073fc583a0c88eb75936b64a6d43a6f06e320bf39384e35e3f5f4c88aa65c833a25cbe76080414bbfde54207050399b350e08aea70ada
+"@types/node@npm:^20.6.5":
+  version: 20.6.5
+  resolution: "@types/node@npm:20.6.5"
+  checksum: 73ba31c3867a5d0f0095a59de2b200637bf8bb58f4e401b762f02e84b0ac4b113a04c3ddfdac7c34b537b30df379da1d77495e60e42c75003c8f79a2bbc95448
   languageName: node
   linkType: hard
 
@@ -1353,7 +1353,7 @@ __metadata:
     "@distube/ytdl-core": "npm:^4.11.7"
     "@tsconfig/node16": "npm:^1.0.3"
     "@types/libsodium-wrappers": "npm:^0.7.11"
-    "@types/node": "npm:^18.15.3"
+    "@types/node": "npm:^20.6.5"
     axios: "npm:^1.5.0"
     discord-api-types: "npm:^0.37.36"
     discord.js: "npm:^14.8.0"
