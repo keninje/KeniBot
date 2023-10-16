@@ -342,10 +342,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.15.3":
-  version: 18.15.3
-  resolution: "@types/node@npm:18.15.3"
-  checksum: 658d687cb6d88ccbb7d073fc583a0c88eb75936b64a6d43a6f06e320bf39384e35e3f5f4c88aa65c833a25cbe76080414bbfde54207050399b350e08aea70ada
+"@types/node@npm:^20.8.6":
+  version: 20.8.6
+  resolution: "@types/node@npm:20.8.6"
+  dependencies:
+    undici-types: "npm:~5.25.1"
+  checksum: f46f850343f82d91afaa4023c1d801e78a1667c273820b7d3db8f620cebb3ea52263df6b57783684c3d68fd75f298989795865c6cdf18fa31351f5d82067b7d5
   languageName: node
   linkType: hard
 
@@ -1353,7 +1355,7 @@ __metadata:
     "@distube/ytdl-core": "npm:^4.11.7"
     "@tsconfig/node16": "npm:^1.0.3"
     "@types/libsodium-wrappers": "npm:^0.7.11"
-    "@types/node": "npm:^18.15.3"
+    "@types/node": "npm:^20.8.6"
     axios: "npm:^1.5.0"
     discord-api-types: "npm:^0.37.36"
     discord.js: "npm:^14.8.0"
@@ -2247,6 +2249,13 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 4b4cb92afdc90f15413ef84d30de0a09649d1e795ac4c10e391c2cde92ef6444f6a34081e4536dc9ce5694a65f2424923871275c7e7d422537b0c09f18ed3fb4
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~5.25.1":
+  version: 5.25.3
+  resolution: "undici-types@npm:5.25.3"
+  checksum: 676aa4fd4c1ebcdcac27f5de1aa219f8d876b449e4b7cd2528d239de849cddad7c73d509cbccd71f70f981ec53c5233bf16108c5e20a0e5bf82c17ccb218d7c4
   languageName: node
   linkType: hard
 
