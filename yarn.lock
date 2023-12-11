@@ -696,10 +696,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord-api-types@npm:^0.37.36":
-  version: 0.37.36
-  resolution: "discord-api-types@npm:0.37.36"
-  checksum: dab78070fc73f4011c56b984f0b77db96ef6d63578cdc9db7df2e2272a4a00e172a90a377ff7747f8d53bf9e795c83ee439c7e0b5d970c24061c69ac188e1dd7
+"discord-api-types@npm:^0.37.66":
+  version: 0.37.66
+  resolution: "discord-api-types@npm:0.37.66"
+  checksum: 602e67c5d5de940d74c27fffe0f2f9a623d0ec1d51c6a818460973ec3b61a412735af5679d73de873d0fd4f68a9466ae6c13f17ac9eccc25041181c31f192250
   languageName: node
   linkType: hard
 
@@ -1355,7 +1355,7 @@ __metadata:
     "@types/libsodium-wrappers": "npm:^0.7.11"
     "@types/node": "npm:^18.15.3"
     axios: "npm:^1.5.0"
-    discord-api-types: "npm:^0.37.36"
+    discord-api-types: "npm:^0.37.66"
     discord.js: "npm:^14.8.0"
     distube: "npm:^4.0.4"
     dotenv: "npm:^16.3.1"
