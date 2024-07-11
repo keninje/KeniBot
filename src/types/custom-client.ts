@@ -3,19 +3,21 @@ import Command from "./command";
 import { DisTube } from 'distube';
 import { YtDlpPlugin } from '@distube/yt-dlp';
 
-export default class CustomClient extends Client<boolean> {
+export default class CustomClient extends Client<true> {
     commands: Map<string, Command>;
 
     distube = new DisTube(this, {
         plugins: [
-            new YtDlpPlugin()
+            new YtDlpPlugin({ update: true })
         ]
     })
 
     constructor(commands: Map<string, Command>) {
         super({ intents: [
             GatewayIntentBits.Guilds,
-            GatewayIntentBits.GuildVoiceStates
+            GatewayIntentBits.GuildMessages,
+            GatewayIntentBits.GuildVoiceStates,
+            GatewayIntentBits.MessageContent,
         ] })
         this.commands = commands
     }
