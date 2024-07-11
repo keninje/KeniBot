@@ -5,6 +5,13 @@ __metadata:
   version: 7
   cacheKey: 9
 
+"@aashutoshrathi/word-wrap@npm:^1.2.3":
+  version: 1.2.6
+  resolution: "@aashutoshrathi/word-wrap@npm:1.2.6"
+  checksum: 0c82b90350766c937f011275be5e67a428e7bc45320db2d11b329512a4c9a953cf805791ced7d3a90ee601d6cdc7961556368572082313e25fdd55441cba864e
+  languageName: node
+  linkType: hard
+
 "@discordjs/builders@npm:^1.8.2":
   version: 1.8.2
   resolution: "@discordjs/builders@npm:1.8.2"
@@ -358,10 +365,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/node22@npm:^22.0.0":
-  version: 22.0.0
-  resolution: "@tsconfig/node22@npm:22.0.0"
-  checksum: 8ff8e32982825d7911918c48207b1b923293a7a4f3002db761a291025a383624bb117ab1fdd829d1e30abb25ddd182c63bbeb9155aa34864a08c6929729770ea
+"@tsconfig/node18@npm:^18.2.4":
+  version: 18.2.4
+  resolution: "@tsconfig/node18@npm:18.2.4"
+  checksum: fec20e5e77bf8fe25e5dc170aad7000a878fdd52f5dec7a2b1aad5cecf83fabd8bb7d06a27e0d4ae5bb362e4c9aa26968c5f7ffd842fb3637d11c7375c45943c
   languageName: node
   linkType: hard
 
@@ -1385,7 +1392,7 @@ __metadata:
     "@distube/youtube": "npm:^1.0.2"
     "@distube/yt-dlp": "npm:^2.0.1"
     "@distube/ytdl-core": "npm:^4.13.5"
-    "@tsconfig/node22": "npm:^22.0.0"
+    "@tsconfig/node18": "npm:^18.2.4"
     "@types/libsodium-wrappers": "npm:^0.7.14"
     "@types/node": "npm:^20.14.10"
     axios: "npm:^1.7.2"
