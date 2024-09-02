@@ -10,7 +10,7 @@
     "@distube/youtube": "^1.0.2",
     "@distube/yt-dlp": "^2.0.1",
     "@distube/ytdl-core": "^4.13.5",
-    "axios": "^1.7.2",
+    "axios": "^1.7.7",
     "discord-api-types": "^0.37.92",
     "discord.js": "^14.15.3",
     "distube": "^5.0.2",

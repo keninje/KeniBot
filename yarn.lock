@@ -537,14 +537,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.7.2":
-  version: 1.7.2
-  resolution: "axios@npm:1.7.2"
+"axios@npm:^1.7.7":
+  version: 1.7.7
+  resolution: "axios@npm:1.7.7"
   dependencies:
     follow-redirects: "npm:^1.15.6"
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
-  checksum: 7419ff53ffa006f53f16b500f70f178ea05bce3838a0af351a956dc8fa0346b3a3d3430aeb86ae54fd6cc008d13aeb46b967d6539c28f4201e9cbee5828921e0
+  checksum: ca38ae09dd8feff4c313c16ea58a0e707c6ef0b2e27e4a99cbf69c0191e97af1a920455429de6e4880d1b78913ac7a00a9630a484b11ed035d4bef558a3e7747
   languageName: node
   linkType: hard
 
@@ -1395,7 +1395,7 @@ __metadata:
     "@tsconfig/node18": "npm:^18.2.4"
     "@types/libsodium-wrappers": "npm:^0.7.14"
     "@types/node": "npm:^20.14.10"
-    axios: "npm:^1.7.2"
+    axios: "npm:^1.7.7"
     discord-api-types: "npm:^0.37.92"
     discord.js: "npm:^14.15.3"
     distube: "npm:^5.0.2"
