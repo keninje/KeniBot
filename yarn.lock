@@ -379,12 +379,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.14.10":
+"@types/node@npm:*":
   version: 20.14.10
   resolution: "@types/node@npm:20.14.10"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: f77e68e5c0dbd831c175b26a409b724fe11578d9b0a0a4f658c5b88fbe0d6b210fd03d093b94d939bbf9c4362c2ca0cc48df0791412cdb1fef49b0d36451a97d
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^22.5.2":
+  version: 22.5.2
+  resolution: "@types/node@npm:22.5.2"
+  dependencies:
+    undici-types: "npm:~6.19.2"
+  checksum: 6827560911c91789986097949320383be3d6da78f5a8a8d1f281d27f444004ffebb56cb1e708cf0791068518ec5c6854f23071105bf8deef247c3091ba6ad121
   languageName: node
   linkType: hard
 
@@ -1394,7 +1403,7 @@ __metadata:
     "@distube/ytdl-core": "npm:^4.13.5"
     "@tsconfig/node18": "npm:^18.2.4"
     "@types/libsodium-wrappers": "npm:^0.7.14"
-    "@types/node": "npm:^20.14.10"
+    "@types/node": "npm:^22.5.2"
     axios: "npm:^1.7.2"
     discord-api-types: "npm:^0.37.92"
     discord.js: "npm:^14.15.3"
@@ -2286,6 +2295,13 @@ __metadata:
   version: 5.26.5
   resolution: "undici-types@npm:5.26.5"
   checksum: 7f556493e22e9023f1f9be0d516f5c3cf74d1d6a090c2701ada5117e99900e8cdf8b5540ad3ceed1a672d3532bdfcd0149c444b980731aacc840eb0660ba8587
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~6.19.2":
+  version: 6.19.8
+  resolution: "undici-types@npm:6.19.8"
+  checksum: 27c8b8f8e484976a6dd4f5f997fcbdf20ad85213575061a37306e4fb12b9963c311d383625aa6db874f8f6c4ed88d509fd007a10b90b359b04819fb239418951
   languageName: node
   linkType: hard
 
