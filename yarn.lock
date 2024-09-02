@@ -201,21 +201,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint-community/regexpp@npm:^4.6.1":
+"@eslint-community/regexpp@npm:^4.11.0":
   version: 4.11.0
   resolution: "@eslint-community/regexpp@npm:4.11.0"
   checksum: 0b7c28278994b0560cc9da1b075f3b57aed568b501fb45cea74c6575ccfd6be6ce526ae8f447504b2cda19b106c27d5769bca7fecbd863d6ed9d4ccf2dd8853e
   languageName: node
   linkType: hard
 
-"@eslint/config-array@npm:^0.17.0":
-  version: 0.17.0
-  resolution: "@eslint/config-array@npm:0.17.0"
+"@eslint/config-array@npm:^0.18.0":
+  version: 0.18.0
+  resolution: "@eslint/config-array@npm:0.18.0"
   dependencies:
     "@eslint/object-schema": "npm:^2.1.4"
     debug: "npm:^4.3.1"
     minimatch: "npm:^3.1.2"
-  checksum: ac5227fa775ddbee4ee94789980285adf87db0fc071a366a9a6c4e4d1d433e4dbfcf83c54933e1ac1558e0f6404bb133c32fa9d0da28c57af644dd2fd4a317bd
+  checksum: 6b36fd433575101a5dbe96e160a20e0a0a129efeea4bbe1e1db8bb01f6a1251c9e558e747a7a90e197f1fbc3c72198baa07b74fc04e8a1a9ffa2081a279cbccd
   languageName: node
   linkType: hard
 
@@ -236,10 +236,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.6.0":
-  version: 9.6.0
-  resolution: "@eslint/js@npm:9.6.0"
-  checksum: 78766d09f4547d73a91fc210a4b6267fc11a8431277d5ee2ec7ab2238fcb3c2eeac72528dd131b1f5f9f515d86b692c25242292c21917850c2310369a856b023
+"@eslint/js@npm:9.9.1":
+  version: 9.9.1
+  resolution: "@eslint/js@npm:9.9.1"
+  checksum: 0d9fabeb7595ad47842be0f5b7da9304a9b2faf21c3bcc8428fc6fb98df89e8fa3dac663092d986b5b9750c90dee20712d8027c109fa7a8f4bef3dce95d45e50
   languageName: node
   linkType: hard
 
@@ -836,13 +836,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-scope@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "eslint-scope@npm:8.0.1"
+"eslint-scope@npm:^8.0.2":
+  version: 8.0.2
+  resolution: "eslint-scope@npm:8.0.2"
   dependencies:
     esrecurse: "npm:^4.3.0"
     estraverse: "npm:^5.2.0"
-  checksum: 1da9d5aca7a983ca35f8a5bc57a404baa592caaafed299affcddaabd7e06e74bdf8dcc8d9c1492cce57d475f5e50ba1b5404ac756203a33cebb223d72469b9d8
+  checksum: db38ed094813dfc45468b9ab2c193583e60834b86c5383bf8fbbe59db7211687ab82fba874685e032c9983011b026abe41917f38616af619823f4305cdcc6016
   languageName: node
   linkType: hard
 
@@ -860,15 +860,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^9.6.0":
-  version: 9.6.0
-  resolution: "eslint@npm:9.6.0"
+"eslint@npm:^9.9.1":
+  version: 9.9.1
+  resolution: "eslint@npm:9.9.1"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
-    "@eslint-community/regexpp": "npm:^4.6.1"
-    "@eslint/config-array": "npm:^0.17.0"
+    "@eslint-community/regexpp": "npm:^4.11.0"
+    "@eslint/config-array": "npm:^0.18.0"
     "@eslint/eslintrc": "npm:^3.1.0"
-    "@eslint/js": "npm:9.6.0"
+    "@eslint/js": "npm:9.9.1"
     "@humanwhocodes/module-importer": "npm:^1.0.1"
     "@humanwhocodes/retry": "npm:^0.3.0"
     "@nodelib/fs.walk": "npm:^1.2.8"
@@ -877,7 +877,7 @@ __metadata:
     cross-spawn: "npm:^7.0.2"
     debug: "npm:^4.3.2"
     escape-string-regexp: "npm:^4.0.0"
-    eslint-scope: "npm:^8.0.1"
+    eslint-scope: "npm:^8.0.2"
     eslint-visitor-keys: "npm:^4.0.0"
     espree: "npm:^10.1.0"
     esquery: "npm:^1.5.0"
@@ -898,9 +898,14 @@ __metadata:
     optionator: "npm:^0.9.3"
     strip-ansi: "npm:^6.0.1"
     text-table: "npm:^0.2.0"
+  peerDependencies:
+    jiti: "*"
+  peerDependenciesMeta:
+    jiti:
+      optional: true
   bin:
     eslint: bin/eslint.js
-  checksum: 5a1ce4f480459fd3de9e329f36d6bf1cd7f48a449f1eb86b79a03251fb7543aabac6d85ec05af24a6229b98c833de751020d84f7766c9b9f8cfbf8080cd34832
+  checksum: 65c0de9dd6c025770b95f9d94f30d6d9a69b68ca17c832ae52ae1f7f1e1080909f993a71b6ebe234d77d680119aa9452ce1e5350cb1eb0911f25281d4d0f4822
   languageName: node
   linkType: hard
 
@@ -1400,7 +1405,7 @@ __metadata:
     discord.js: "npm:^14.15.3"
     distube: "npm:^5.0.2"
     dotenv: "npm:^16.4.5"
-    eslint: "npm:^9.6.0"
+    eslint: "npm:^9.9.1"
     libsodium-wrappers: "npm:^0.7.14"
     typescript: "npm:^5.5.3"
   languageName: unknown
