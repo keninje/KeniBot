@@ -133,16 +133,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@distube/youtube@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "@distube/youtube@npm:1.0.2"
+"@distube/youtube@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "@distube/youtube@npm:1.0.4"
   dependencies:
-    "@distube/ytdl-core": "npm:^4.13.4"
+    "@distube/ytdl-core": "npm:^4.14.2"
     "@distube/ytpl": "npm:^1.2.1"
-    "@distube/ytsr": "npm:^2.0.0"
+    "@distube/ytsr": "npm:^2.0.4"
   peerDependencies:
     distube: 5
-  checksum: 39e5e4ddeb11fddd90a94ade9970987f2e427bb3cf7e6c9440b2f819e1f645cad45cbd31da61ca5fc985818a4d3cacad361a67b495d12f8cfc1b3f83fbcf5826
+  checksum: 1ef9cfdacf219478dbde0beb1f4753ad19e22b32c1067c370535b53cbae122de908902f455bf664268afbaadad076c64d27999623c7d0fd33a94542b52472100
   languageName: node
   linkType: hard
 
@@ -158,7 +158,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@distube/ytdl-core@npm:^4.13.4, @distube/ytdl-core@npm:^4.13.5":
+"@distube/ytdl-core@npm:^4.13.5":
   version: 4.13.5
   resolution: "@distube/ytdl-core@npm:4.13.5"
   dependencies:
@@ -172,6 +172,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@distube/ytdl-core@npm:^4.14.2":
+  version: 4.14.4
+  resolution: "@distube/ytdl-core@npm:4.14.4"
+  dependencies:
+    http-cookie-agent: "npm:^6.0.5"
+    m3u8stream: "npm:^0.8.6"
+    miniget: "npm:^4.2.3"
+    sax: "npm:^1.4.1"
+    tough-cookie: "npm:^4.1.4"
+    undici: "npm:five"
+  checksum: 9561cdf9247459ecdacd234dbf89921a2d8f8b9d4a132e4b4be512315b29f839b19154b326f0fdf81363e61e005babe4dc3d67ae11f9f0f59cd2c47fc12e5f73
+  languageName: node
+  linkType: hard
+
 "@distube/ytpl@npm:^1.2.1":
   version: 1.2.1
   resolution: "@distube/ytpl@npm:1.2.1"
@@ -181,7 +195,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@distube/ytsr@npm:^2.0.0":
+"@distube/ytsr@npm:^2.0.4":
   version: 2.0.4
   resolution: "@distube/ytsr@npm:2.0.4"
   dependencies:
@@ -1389,7 +1403,7 @@ __metadata:
     "@discordjs/opus": "npm:^0.9.0"
     "@discordjs/rest": "npm:^2.3.0"
     "@discordjs/voice": "npm:^0.17.0"
-    "@distube/youtube": "npm:^1.0.2"
+    "@distube/youtube": "npm:^1.0.4"
     "@distube/yt-dlp": "npm:^2.0.1"
     "@distube/ytdl-core": "npm:^4.13.5"
     "@tsconfig/node18": "npm:^18.2.4"
@@ -2296,7 +2310,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^5.25.2":
+"undici@npm:^5.25.2, undici@npm:five":
   version: 5.28.4
   resolution: "undici@npm:5.28.4"
   dependencies:
