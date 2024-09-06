@@ -1,5 +1,4 @@
-import { REST } from "@discordjs/rest"
-import { Routes } from "discord-api-types/v10"
+import { REST, Routes } from "discord.js/typings"
 import { clientId, token } from "./config.js"
 import { getCommands } from "./common.js"
 

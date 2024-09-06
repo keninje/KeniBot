@@ -5,7 +5,7 @@ const constructEmbedQueuedUp = (song: Song<unknown>, position: number, secondsUn
     return new EmbedBuilder()
         .setColor('#A877C8')
         .setTitle("New song queued up")
-        .setDescription(bold(hyperlink(song.name ?? "Song", song.url)))
+        .setDescription(bold(hyperlink(song.name ?? "Song", new URL(song.url!!))))
         .addFields(
             { name: 'Duration', value: song.formattedDuration ?? 'where duration?' },
             { name: 'Position in queue', value: position == 1 ? 'Next' : (position + 1).toString() },
@@ -17,7 +17,7 @@ const constructEmbedQueuedUp = (song: Song<unknown>, position: number, secondsUn
 const constructEmbedCurrentlyPlaying = (song: Song<unknown>, elapsed: number): EmbedBuilder =>
     new EmbedBuilder()
         .setColor('#A877C8')
-        .setDescription(`Now playing: ${bold(hyperlink(song.name!!, song.url))}`)
+        .setDescription(`Now playing: ${bold(hyperlink(song.name!!, new URL(song.url!!)))}`)
         .addFields(
             { name: "Time remaining", value: secondsToMinutes(song.duration - elapsed) }
         )

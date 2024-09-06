@@ -13,12 +13,16 @@ class PlayCommand extends SongCommand {
                 .setRequired(true)
         );
 
-    async executeSongCommand(interaction: ChatInputCommandInteraction<CacheType>, voiceBasedChannel: VoiceBasedChannel, client: CustomClient): Promise<void> {
-        const song: string = interaction.options.getString('song') //parameter is set as required in the command builder
+    async executeSongCommand(
+        interaction: ChatInputCommandInteraction<CacheType>,
+        voiceBasedChannel: VoiceBasedChannel,
+        client: CustomClient
+    ): Promise<void> {
+        const song: string = interaction.options.getString('song', true) //parameter is set as required in the command builder
         await interaction.deferReply();
         await client.distube.play(voiceBasedChannel, song, {
-            member: interaction.member,
-            textChannel: interaction.channel ?? undefined,
+            member: interaction.member as GuildMember,
+            textChannel: interaction.channel as GuildTextBasedChannel,
             metadata: { interaction },
         }).then(async () => {
             const queue = client.distube.getQueue(interaction.guildId!!)!!
