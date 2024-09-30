@@ -18,7 +18,7 @@
     "@tsconfig/node18": "^18.2.4",
     "@types/libsodium-wrappers": "^0.7.14",
     "@types/node": "^20.14.10",
-    "eslint": "^9.9.1",
+    "eslint": "^9.11.1",
     "typescript": "^5.5.4"
   },
   "type": "module",
