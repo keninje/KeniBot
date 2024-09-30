@@ -9,7 +9,7 @@
     "@distube/youtube": "^1.0.4",
     "@distube/yt-dlp": "^2.0.1",
     "@distube/ytdl-core": "^4.14.4",
-    "discord.js": "^14.16.1",
+    "discord.js": "^14.16.3",
     "distube": "^5.0.2",
     "dotenv": "^16.4.5",
     "libsodium-wrappers": "^0.7.15"
