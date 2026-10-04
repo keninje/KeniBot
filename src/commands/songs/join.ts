@@ -1,6 +1,6 @@
 import { CommandInteraction, CacheType, VoiceBasedChannel, SlashCommandBuilder } from "discord.js";
-import customClient from "../../types/custom-client";
-import SongCommand from "../../types/song-command.js";
+import customClient from "../../types/custom-client.ts";
+import SongCommand from "../../types/song-command.ts";
 
 class JoinCommand extends SongCommand {
     data = new SlashCommandBuilder()

@@ -1,5 +1,5 @@
-import { Client, GatewayIntentBits, Partials } from "discord.js";
-import Command from "./command";
+import { Client, GatewayIntentBits } from "discord.js";
+import { type Command } from "./command.ts";
 import { DisTube } from 'distube';
 import { YtDlpPlugin } from '@distube/yt-dlp';
 

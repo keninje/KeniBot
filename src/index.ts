@@ -1,9 +1,9 @@
 import { CacheType, ChatInputCommandInteraction } from "discord.js";
 import { Queue, Song, Events } from "distube";
-import { getCommandsMap } from "./common.js";
-import { token } from './config.js'
-import CustomClient from "./types/custom-client.js";
-import { constructEmbedCurrentlyPlaying, constructEmbedEmptyQueue } from "./utils/songs.js";
+import { getCommandsMap } from "./common.ts";
+import { token } from './config.ts'
+import CustomClient from "./types/custom-client.ts";
+import { constructEmbedCurrentlyPlaying, constructEmbedEmptyQueue } from "./utils/songs.ts";
 
 const client = new CustomClient(
     await getCommandsMap(`./commands`)
@@ -21,7 +21,7 @@ client.on('interactionCreate', async interaction => {
     const command = client.commands.get(interaction.commandName)
 
     try {
-        await command!!.execute(commandInterraction, client)
+        await command!.execute(commandInterraction, client)
     } catch (error) {
         console.error(error)
         await interaction.reply({ content: `There was an error while processing the command` })

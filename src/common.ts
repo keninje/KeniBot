@@ -1,11 +1,11 @@
-import fsp from 'fs/promises';
-import Command from './types/command';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import fsp from 'node:fs/promises';
+import { type Command } from './types/command.ts';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const getModulesFromFiles = (files: string[]): Promise<Command[]> =>
     Promise.all(
-        files.filter(file => file.endsWith('.js'))
+        files.filter(file => file.endsWith('.ts'))
             .map(async file => {
                 const { default: command } = await import(`${file}`)
                 console.log(`Loaded ${file}`)
@@ -14,6 +14,7 @@ const getModulesFromFiles = (files: string[]): Promise<Command[]> =>
     );
 
 const getFilesRecursively = async (dir: string): Promise<string[]> => {
+    console.log(import.meta.url)
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = dirname(__filename)
     const files = await fsp.readdir(`${__dirname}/${dir}`, { withFileTypes: true })

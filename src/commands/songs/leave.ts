@@ -1,6 +1,6 @@
 import { CacheType, VoiceBasedChannel, SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
-import customClient from "../../types/custom-client";
-import SongCommand from "../../types/song-command.js";
+import customClient from "../../types/custom-client.ts";
+import SongCommand from "../../types/song-command.ts";
 
 class LeaveCommand extends SongCommand {
     data = new SlashCommandBuilder()

@@ -23,8 +23,7 @@ jobs:
             git fetch --all
             git reset --hard origin/main
             git pull origin main
-            yarn install
-            yarn build
+            deno install
 
             echo "DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}" > .env
             echo "CLIENT_ID=${{ secrets.CLIENT_ID }}" >> .env

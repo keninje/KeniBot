@@ -1,7 +1,7 @@
 import { CacheType, ChatInputCommandInteraction, GuildMember, GuildTextBasedChannel, SlashCommandBuilder, VoiceBasedChannel } from 'discord.js';
-import CustomClient from '../../types/custom-client.js';
-import SongCommand from '../../types/song-command.js';
-import { constructEmbedQueuedUp } from '../../utils/songs.js';
+import CustomClient from '../../types/custom-client.ts';
+import SongCommand from '../../types/song-command.ts';
+import { constructEmbedQueuedUp } from '../../utils/songs.ts';
 
 class PlayCommand extends SongCommand {
     data = new SlashCommandBuilder()
@@ -25,10 +25,10 @@ class PlayCommand extends SongCommand {
             textChannel: interaction.channel as GuildTextBasedChannel,
             metadata: { interaction },
         }).then(async () => {
-            const queue = client.distube.getQueue(interaction.guildId!!)!!
-            const songs = queue.songs!!
+            const queue = client.distube.getQueue(interaction.guildId!)!
+            const songs = queue.songs!
             const position = songs.length - 1
-            const queuedSong = songs.at(position)!! //song is guarranteed to be at the back of the queue since we just queued one
+            const queuedSong = songs.at(position)! //song is guarranteed to be at the back of the queue since we just queued one
             const embed = constructEmbedQueuedUp(queuedSong, songs.length - 1, songs.reduce((acc, e) => acc + e.duration, -queuedSong.duration - queue.currentTime))
             await interaction.editReply({ embeds: [embed] })
         })

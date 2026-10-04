@@ -1,7 +1,6 @@
 import { CacheType, ChatInputCommandInteraction, SlashCommandBuilder, VoiceBasedChannel } from 'discord.js';
-import { DisTubeError } from 'distube';
-import customClient from '../../types/custom-client.js';
-import SongCommand from '../../types/song-command.js';
+import customClient from '../../types/custom-client.ts';
+import SongCommand from '../../types/song-command.ts';
 
 class SkipCommand extends SongCommand {
     data = new SlashCommandBuilder()
@@ -9,7 +8,7 @@ class SkipCommand extends SongCommand {
         .setDescription('Skip current song')
 
     async executeSongCommand(interaction: ChatInputCommandInteraction<CacheType>, voiceBasedChannel: VoiceBasedChannel, client: customClient): Promise<void> {
-        const queueLength = client.distube.getQueue(interaction.guildId!!)?.songs?.length
+        const queueLength = client.distube.getQueue(interaction.guildId!)?.songs?.length
         if (queueLength === undefined) {
             await interaction.reply("No song to skip")
         }

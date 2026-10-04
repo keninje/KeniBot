@@ -1,7 +1,7 @@
 import { CacheType, CommandInteraction, SlashCommandBuilder, VoiceBasedChannel } from "discord.js";
-import CustomClient from "../../types/custom-client";
-import SongCommand from "../../types/song-command.js";
-import { constructEmbedCurrentlyPlaying, constructEmbedEmptyQueue } from "../../utils/songs.js";
+import CustomClient from "../../types/custom-client.ts";
+import SongCommand from "../../types/song-command.ts";
+import { constructEmbedCurrentlyPlaying, constructEmbedEmptyQueue } from "../../utils/songs.ts";
 
 class CurrentCommand extends SongCommand {
     data = new SlashCommandBuilder()
@@ -9,11 +9,11 @@ class CurrentCommand extends SongCommand {
         .setDescription('Displays information about the currently played song');
 
     async executeSongCommand(interaction: CommandInteraction<CacheType>, voiceBasedChannel: VoiceBasedChannel, client: CustomClient): Promise<void> {
-        const queue = client.distube.getQueue(interaction.guildId!!)
+        const queue = client.distube.getQueue(interaction.guildId!)
         const elapsed = queue?.currentTime
         const currentSong = queue?.songs.at(0)
 
-        const embed = currentSong !== undefined ? constructEmbedCurrentlyPlaying(currentSong, elapsed!!) : constructEmbedEmptyQueue()
+        const embed = currentSong !== undefined ? constructEmbedCurrentlyPlaying(currentSong, elapsed!) : constructEmbedEmptyQueue()
 
         await interaction.reply({ embeds: [embed] })
     }

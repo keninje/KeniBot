@@ -1,5 +1,5 @@
 import { CacheType, CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
-import Command from '../types/command.js';
+import { type Command } from '../types/command.ts';
 
 class InspireMeCommand implements Command {
     data =  new SlashCommandBuilder()
@@ -8,7 +8,7 @@ class InspireMeCommand implements Command {
 
     async execute(interaction: CommandInteraction<CacheType>) {
         fetch('http://inspirobot.me/api?generate=true')
-            .then(async resp => resp.text())
+            .then(resp => resp.text())
             .then(async text => {
                 const embed = new EmbedBuilder()
                     .setColor('#A877C8')
