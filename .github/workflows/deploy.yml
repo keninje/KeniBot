@@ -19,10 +19,13 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             set -e
+            export NVM_DIR="$HOME/.nvm"
+            . "$NVM_DIR/nvm.sh"
+            nvm use default
+
             cd bot/KeniBot
-            git fetch --all
+            git fetch origin
             git reset --hard origin/main
-            git pull origin main
             pnpm install --frozen-lockfile
 
             echo "DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}" > .env
