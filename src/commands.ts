@@ -1,6 +1,6 @@
-import { REST, Routes } from "discord.js/typings"
-import { clientId, token } from "./config.js"
-import { getCommands } from "./common.js"
+import { clientId, token } from "./config.ts"
+import { getCommands } from "./common.ts"
+import { REST, Routes } from "discord.js";
 
 const commands = (await getCommands('./commands')).map(c => c.data.toJSON())
 
@@ -21,7 +21,7 @@ const addCommandsGlobally = () => {
 if (process.argv.includes('--global')) {
     addCommandsGlobally()
 } else if (process.argv.length >= 3) {
-    addCommandsToGuild(process.argv.at(2)!!)
+    addCommandsToGuild(process.argv.at(2)!)
 } else {
     console.log("No command line arguments specified")
 }

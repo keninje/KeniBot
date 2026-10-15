@@ -1,5 +1,5 @@
-import { CommandInteraction, CacheType, VoiceBasedChannel, SlashCommandBuilder } from "discord.js";
-import customClient from "../../types/custom-client.ts";
+import { CacheType, ChatInputCommandInteraction, SlashCommandBuilder, VoiceBasedChannel } from "discord.js";
+import { useMainPlayer } from "discord-player";
 import SongCommand from "../../types/song-command.ts";
 
 class JoinCommand extends SongCommand {
@@ -7,9 +7,12 @@ class JoinCommand extends SongCommand {
         .setName('join')
         .setDescription('Join voice channel');
 
-    async executeSongCommand(interaction: CommandInteraction<CacheType>, voiceBasedChannel: VoiceBasedChannel, client: customClient): Promise<void> {
-        await client.distube.voices.join(voiceBasedChannel)
-            .then(async () => await interaction.reply("Let's jam"))
+    async executeSongCommand(interaction: ChatInputCommandInteraction<CacheType>, voiceBasedChannel: VoiceBasedChannel): Promise<void> {
+        const queue = useMainPlayer().nodes.create(interaction.guild!, {
+            metadata: { channel: interaction.channel },
+        })
+        if (!queue.connection) await queue.connect(voiceBasedChannel)
+        await interaction.reply("Let's jam")
     }
 }
 

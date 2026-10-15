@@ -27,6 +27,6 @@ AYAYA Clap
 ```
 
 ## How to run:
-* yarn install
-* yarn build
-* yarn start
+* pnpm install
+* pnpm pushGuild <guildId>   (or pnpm pushGlobal) to register slash commands
+* pnpm start

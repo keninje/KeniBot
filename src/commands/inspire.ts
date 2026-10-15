@@ -7,7 +7,7 @@ class InspireMeCommand implements Command {
         .setDescription('Generates an inspirational quote')
 
     async execute(interaction: CommandInteraction<CacheType>) {
-        fetch('http://inspirobot.me/api?generate=true')
+        await fetch('http://inspirobot.me/api?generate=true')
             .then(resp => resp.text())
             .then(async text => {
                 const embed = new EmbedBuilder()

@@ -23,7 +23,7 @@ jobs:
             git fetch --all
             git reset --hard origin/main
             git pull origin main
-            deno install
+            pnpm install --frozen-lockfile
 
             echo "DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}" > .env
             echo "CLIENT_ID=${{ secrets.CLIENT_ID }}" >> .env

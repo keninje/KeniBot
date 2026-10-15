@@ -1,5 +1,5 @@
-import { CacheType, ChatInputCommandInteraction, SlashCommandBuilder, VoiceBasedChannel } from 'discord.js';
-import customClient from '../../types/custom-client.ts';
+import { CacheType, ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js';
+import { useQueue } from 'discord-player';
 import SongCommand from '../../types/song-command.ts';
 
 class SkipCommand extends SongCommand {
@@ -7,21 +7,16 @@ class SkipCommand extends SongCommand {
         .setName('skip')
         .setDescription('Skip current song')
 
-    async executeSongCommand(interaction: ChatInputCommandInteraction<CacheType>, voiceBasedChannel: VoiceBasedChannel, client: customClient): Promise<void> {
-        const queueLength = client.distube.getQueue(interaction.guildId!)?.songs?.length
-        if (queueLength === undefined) {
+    async executeSongCommand(interaction: ChatInputCommandInteraction<CacheType>): Promise<void> {
+        const queue = useQueue()
+        if (!queue?.currentTrack) {
             await interaction.reply("No song to skip")
+            return
         }
-        else {
-            if (queueLength == 1) {
-                client.distube.stop(interaction)
-            } else {
-                client.distube.skip(interaction)
-            }
-            await interaction.reply("Skipped current song");
-        }
+        // Skipping the last song empties the queue, which fires the EmptyQueue event
+        queue.node.skip()
+        await interaction.reply("Skipped current song");
     }
 };
 
 export default new SkipCommand();
-

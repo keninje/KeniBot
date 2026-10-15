@@ -1,33 +1,40 @@
 {
   "name": "keni-bot",
   "version": "1.0.1",
-  "main": "target/index.js",
+  "main": "src/index.ts",
   "license": "MIT",
   "dependencies": {
-    "@discordjs/opus": "^0.9.0",
-    "@discordjs/voice": "^0.17.0",
-    "@distube/youtube": "^1.0.4",
+    "@discord-player/extractor": "^7.2.0",
+    "@discordjs/voice": "^0.19.2",
+    "bgutils-js": "^4.0.3",
+    "discord-player": "^7.2.0",
+    "discord-player-youtubei": "^3.1.0",
     "discord.js": "^14.27.0",
-    "distube": "^5.2.3",
-    "dotenv": "^16.6.1",
-    "libsodium-wrappers": "^0.7.16",
+    "dotenv": "^18.0.5",
+    "eris": "0.18.0",
+    "googlevideo": "^4.1.1",
+    "libsodium-wrappers": "^0.8.4",
+    "mediaplex": "^1.0.0",
+    "simple-ytdl-core": "^1.1.1",
     "youtubei.js": "^18.1.0"
   },
   "devDependencies": {
-    "@tsconfig/node18": "^18.2.7",
-    "@types/libsodium-wrappers": "^0.7.14",
-    "@types/node": "^20.19.43",
-    "eslint": "^9.39.5",
-    "typescript": "^5.9.3"
+    "@tsconfig/node22": "^22.0.6",
+    "@types/node": "^26.6.4",
+    "eslint": "^10.12.0",
+    "tsx": "^4.20.0",
+    "typescript": "^7.0.2"
   },
   "type": "module",
-  "packageManager": "yarn@4.4.1",
+  "packageManager": "pnpm@12.11.2",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
-    "build": "yarn install && yarn tsc",
-    "clean": "rm -rf target",
-    "start": "yarn node target/index.js",
-    "restart": "yarn build && yarn start",
-    "pushGuild": "yarn node target/commands.js",
-    "pushGlobal": "yarn node target/commands.js --global"
+    "start": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "pushGuild": "tsx src/commands.ts",
+    "pushGlobal": "tsx src/commands.ts --global"
   }
 }

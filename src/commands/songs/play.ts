@@ -1,5 +1,5 @@
-import { CacheType, ChatInputCommandInteraction, GuildMember, GuildTextBasedChannel, SlashCommandBuilder, VoiceBasedChannel } from 'discord.js';
-import CustomClient from '../../types/custom-client.ts';
+import { CacheType, ChatInputCommandInteraction, SlashCommandBuilder, VoiceBasedChannel } from 'discord.js';
+import { useMainPlayer } from 'discord-player';
 import SongCommand from '../../types/song-command.ts';
 import { constructEmbedQueuedUp } from '../../utils/songs.ts';
 
@@ -13,31 +13,35 @@ class PlayCommand extends SongCommand {
                 .setRequired(true)
         );
 
-    async executeSongCommand(
-        interaction: ChatInputCommandInteraction<CacheType>,
-        voiceBasedChannel: VoiceBasedChannel,
-        client: CustomClient
-    ): Promise<void> {
-        const song: string = interaction.options.getString('song', true) //parameter is set as required in the command builder
+    async executeSongCommand(interaction: ChatInputCommandInteraction<CacheType>, voiceBasedChannel: VoiceBasedChannel): Promise<void> {
+        const song = interaction.options.getString('song', true) //parameter is set as required in the command builder
         await interaction.deferReply();
-        await client.distube.play(voiceBasedChannel, song, {
-            member: interaction.member as GuildMember,
-            textChannel: interaction.channel as GuildTextBasedChannel,
-            metadata: { interaction },
-        }).then(async () => {
-            const queue = client.distube.getQueue(interaction.guildId!)!
-            const songs = queue.songs!
-            const position = songs.length - 1
-            const queuedSong = songs.at(position)! //song is guarranteed to be at the back of the queue since we just queued one
-            const embed = constructEmbedQueuedUp(queuedSong, songs.length - 1, songs.reduce((acc, e) => acc + e.duration, -queuedSong.duration - queue.currentTime))
+        try {
+            const { track, queue } = await useMainPlayer().play(voiceBasedChannel, song, {
+                requestedBy: interaction.user,
+                nodeOptions: { metadata: { channel: interaction.channel } },
+            })
+
+            const upcoming = queue.tracks.toArray()
+            const index = upcoming.indexOf(track)
+            if (index === -1) {
+                // Nothing else was queued, so it's already playing (PlayerStart sends the "Now playing" embed)
+                await interaction.editReply(`🎶 Starting **${track.title}**`)
+                return
+            }
+
+            const current = queue.currentTrack
+            const currentRemaining = current ? current.durationMS - (queue.node.getTimestamp()?.current.value ?? 0) : 0
+            const msUntil = upcoming.slice(0, index).reduce((acc, t) => acc + t.durationMS, currentRemaining)
+
+            // position 1 = next up, matching constructEmbedQueuedUp
+            const embed = constructEmbedQueuedUp(track, index + 1, msUntil)
             await interaction.editReply({ embeds: [embed] })
-        })
-        .catch(async (err) => {
-            console.log(err)
+        } catch (err) {
+            console.error(err)
             await interaction.editReply("Something broke");
-        })
+        }
     }
 };
 
 export default new PlayCommand();
-

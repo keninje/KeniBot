@@ -1,25 +1,25 @@
 import { bold, Colors, EmbedBuilder, hyperlink } from "discord.js";
-import { Song } from "distube";
+import { Track } from "discord-player";
 
-const constructEmbedQueuedUp = (song: Song<unknown>, position: number, secondsUntil: number): EmbedBuilder => {
+const constructEmbedQueuedUp = (song: Track<unknown>, position: number, secondsUntil: number): EmbedBuilder => {
     return new EmbedBuilder()
         .setColor('#A877C8')
         .setTitle("New song queued up")
-        .setDescription(bold(hyperlink(song.name ?? "Song", new URL(song.url!))))
+        .setDescription(bold(hyperlink(song.title ?? "Song", new URL(song.url!))))
         .addFields(
-            { name: 'Duration', value: song.formattedDuration ?? 'where duration?' },
+            { name: 'Duration', value: song.duration ?? 'where duration?' },
             { name: 'Position in queue', value: position == 1 ? 'Next' : (position + 1).toString() },
-            { name: 'Estimated time until song is played', value: secondsToMinutes(secondsUntil)}
+            { name: 'Estimated time until song is played', value: millisecondsToMinutes(secondsUntil)}
         )
         .setThumbnail(song.thumbnail ?? "https://images.pexels.com/photos/11733110/pexels-photo-11733110.jpeg")
 }
 
-const constructEmbedCurrentlyPlaying = (song: Song<unknown>, elapsed: number): EmbedBuilder =>
+const constructEmbedCurrentlyPlaying = (song: Track<unknown>, elapsed: number): EmbedBuilder =>
     new EmbedBuilder()
         .setColor('#A877C8')
-        .setDescription(`Now playing: ${bold(hyperlink(song.name!, new URL(song.url!)))}`)
+        .setDescription(`Now playing: ${bold(hyperlink(song.title!, new URL(song.url!)))}`)
         .addFields(
-            { name: "Time remaining", value: secondsToMinutes(song.duration - elapsed) }
+            { name: "Time remaining", value: millisecondsToMinutes(song.durationMS - elapsed) }
         )
         .setThumbnail(song.thumbnail ?? "https://images.pexels.com/photos/11733110/pexels-photo-11733110.jpeg")
 
@@ -28,7 +28,8 @@ const constructEmbedEmptyQueue = (): EmbedBuilder =>
         .setColor(Colors.Red)
         .setDescription('There are no songs in the queue')
 
-const secondsToMinutes = (seconds: number): string => {
+const millisecondsToMinutes = (ms: number): string => {
+    const seconds = ms / 1000
     const minutes = Math.floor(seconds / 60)
     const remainingSeconds = Math.floor(seconds - minutes * 60);
     const hours = Math.floor(minutes / 60)
@@ -36,4 +37,4 @@ const secondsToMinutes = (seconds: number): string => {
     return `${hours > 0 ? hours.toString() + ':' : ''}${remainingMinutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`
 }
 
-export { constructEmbedCurrentlyPlaying, constructEmbedQueuedUp, secondsToMinutes, constructEmbedEmptyQueue }
+export { constructEmbedCurrentlyPlaying, constructEmbedQueuedUp, millisecondsToMinutes, constructEmbedEmptyQueue }

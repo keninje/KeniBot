@@ -1,0 +1,5 @@
+allowBuilds:
+  esbuild: true
+# pnpm blocks dependency install scripts by default (like Deno's allowScripts).
+# Only packages listed here may run them. If `pnpm install` warns about
+# ignored build scripts, run `pnpm approve-builds` to add them.

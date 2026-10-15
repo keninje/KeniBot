@@ -1,5 +1,5 @@
-import { CacheType, VoiceBasedChannel, SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
-import customClient from "../../types/custom-client.ts";
+import { CacheType, ChatInputCommandInteraction, SlashCommandBuilder } from "discord.js";
+import { useQueue } from "discord-player";
 import SongCommand from "../../types/song-command.ts";
 
 class LeaveCommand extends SongCommand {
@@ -7,8 +7,13 @@ class LeaveCommand extends SongCommand {
         .setName('leave')
         .setDescription('Leave voice channel');
 
-    async executeSongCommand(interaction: ChatInputCommandInteraction<CacheType>, voiceBasedChannel: VoiceBasedChannel, client: customClient): Promise<void> {
-        client.distube.voices.leave(interaction)
+    async executeSongCommand(interaction: ChatInputCommandInteraction<CacheType>): Promise<void> {
+        const queue = useQueue()
+        if (!queue) {
+            await interaction.reply("I'm not in a voice channel")
+            return
+        }
+        queue.delete()
         await interaction.reply("Bye 👋")
     }
 }

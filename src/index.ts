@@ -1,15 +1,30 @@
-import { CacheType, ChatInputCommandInteraction } from "discord.js";
-import { Queue, Song, Events } from "distube";
+import { CacheType, ChatInputCommandInteraction, VoiceBasedChannel } from "discord.js";
 import { getCommandsMap } from "./common.ts";
 import { token } from './config.ts'
-import CustomClient from "./types/custom-client.ts";
 import { constructEmbedCurrentlyPlaying, constructEmbedEmptyQueue } from "./utils/songs.ts";
+import console from "node:console";
+import { Client, GatewayIntentBits } from "discord.js";
+import { Player, GuildQueueEvent, GuildQueue }  from 'discord-player';
+import { DefaultExtractors } from '@discord-player/extractor';
+import { YoutubeExtractor } from 'discord-player-youtubei';
 
-const client = new CustomClient(
-    await getCommandsMap(`./commands`)
-)
 
-client.once('ready', () => {
+const commands = await getCommandsMap(`./commands`)
+
+const client = new Client({
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.GuildVoiceStates,
+        GatewayIntentBits.MessageContent,
+    ]
+});
+
+const player = Player.create(client)
+
+client.once('clientReady', async () => {
+    await player.extractors.register(YoutubeExtractor, {});
+    await player.extractors.loadMulti(DefaultExtractors);
     console.log('Ready')
 })
 
@@ -18,20 +33,28 @@ client.on('interactionCreate', async interaction => {
 
     const commandInterraction = interaction as ChatInputCommandInteraction<CacheType>
 
-    const command = client.commands.get(interaction.commandName)
+    const command = commands.get(interaction.commandName)
+
+    const data = {
+        guild: interaction.guild!, 
+    }; 
 
     try {
-        await command!.execute(commandInterraction, client)
+        await player.context.provide(data, () => command!.execute(commandInterraction))
     } catch (error) {
         console.error(error)
         await interaction.reply({ content: `There was an error while processing the command` })
     }
 })
 
-client.distube.on(Events.PLAY_SONG, (queue: Queue, song: Song<unknown>) => {
-    queue.textChannel?.send({ embeds: [constructEmbedCurrentlyPlaying(song, queue.currentTime)] })
+player.events.on(GuildQueueEvent.PlayerStart, async (queue, track) => {
+    const { channel }: {channel: VoiceBasedChannel} = queue.metadata;
+    await channel.send({ embeds: [constructEmbedCurrentlyPlaying(track, 0)] })
 })
 
-client.distube.on(Events.FINISH, (queue: Queue) => queue.textChannel?.send({ embeds: [constructEmbedEmptyQueue()] }));
+player.events.on(GuildQueueEvent.EmptyQueue, (queue: GuildQueue) => {
+    const { channel }: {channel: VoiceBasedChannel} = queue.metadata;
+    channel.send({ embeds: [constructEmbedEmptyQueue()] })
+})
 
 client.login(token)
