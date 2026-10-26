@@ -203,8 +203,8 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1
       youtubei.js:
-        specifier: ^18.1.0
-        version: 18.1.0
+        specifier: ^18.3.0
+        version: 18.3.0
     devDependencies:
       '@tsconfig/node22':
         specifier: ^22.0.6
@@ -2124,8 +2124,8 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  youtubei.js@18.1.0:
-    resolution: {integrity: sha512-4Goo3ZeO6/kE8Mq67eC8Z9K1rijeqRwyKxf/YM4lqf8bB4r/s8JC0V3YFx7+l/AJR3LnAsulTsiIj+AFe0cduA==}
+  youtubei.js@18.3.0:
+    resolution: {integrity: sha512-6Cwn/U8a+OjpZp5XgqOjwy7Lk0RrGavm3I5zO7qZWO+fes20vhWMZnlUs0h/97SwjS0AsxAZrZ5bJ85XBJVWTw==}
 
 snapshots:
 
@@ -2925,7 +2925,7 @@ snapshots:
     dependencies:
       bgutils-js: 4.0.3
       googlevideo: 4.1.1
-      youtubei.js: 18.1.0
+      youtubei.js: 18.3.0
 
   discord-player@7.2.0(@discord-player/extractor@7.2.0)(mediaplex@1.0.0)(tsx@4.23.15):
     dependencies:
@@ -3772,7 +3772,7 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  youtubei.js@18.1.0:
+  youtubei.js@18.3.0:
     dependencies:
       '@bufbuild/protobuf': 2.16.0
       fflate: 0.8.3
