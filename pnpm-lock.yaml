@@ -200,8 +200,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       simple-ytdl-core:
-        specifier: ^1.1.1
-        version: 1.1.1
+        specifier: ^1.2.2
+        version: 1.2.2
       youtubei.js:
         specifier: ^18.1.0
         version: 18.1.0
@@ -1919,8 +1919,8 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  simple-ytdl-core@1.1.1:
-    resolution: {integrity: sha512-HGdj4sf0cJmwL+ghdlRqg7tXB7Kto2RaWb7bc08dac9S8JGUwMu4QtcmS2ZQLQltKTl9lfhRRerhi7KS4S0ogA==}
+  simple-ytdl-core@1.2.2:
+    resolution: {integrity: sha512-8JbIO/ONQokSqaThEuVKcA39NJHb+eVpl2OLYI0cCagyNceWI/KMIK/60qusTT2PPm9hypqOaDsVX4VtXAnDGA==}
 
   soundcloud.ts@0.5.5:
     resolution: {integrity: sha512-bygjhC1w/w26Nk0Y+4D4cWSEJ1TdxLaE6+w4pCazFzPF+J4mzuB62ggWmFa7BiwnirzNf9lgPbjzrQYGege4Ew==}
@@ -3566,7 +3566,7 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  simple-ytdl-core@1.1.1:
+  simple-ytdl-core@1.2.2:
     dependencies:
       '@napi-rs/canvas': 1.0.11
       jsdom: 29.0.1
